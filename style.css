@@ -19,23 +19,29 @@ body {
 #header {
   width: 100%;
   height: 100vh;
-  background-image: url('profile-pic.jpg');
-  background-size: 300px;
-  background-position: 90% center;
+  /* Image as background for the Home Section */
+  background-image: url('profile-pic.jpg'); 
+  background-size: contain; /* Scales image while preserving aspect ratio */
+  background-position: 90% center; /* Positions the image to the right */
   background-repeat: no-repeat;
+  
   padding: 20px 10%;
   position: relative;
+  
+  /* Flexbox to vertically center the header text */
+  display: flex;
+  flex-direction: column; 
 }
 
 /* Navigation Bar */
 .nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Push nav to the right */
   align-items: center;
+  padding-bottom: 20px; /* Space between nav and main text */
 }
-.header-text span{
-  color: red;
-}
+
+/* Removed: .header-text span. It was unused in the current HTML. */
 
 .nav ul {
   display: flex;
@@ -48,6 +54,7 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
+  font-weight: 500;
 }
 
 .nav ul li a::after {
@@ -55,7 +62,7 @@ body {
   position: absolute;
   width: 0;
   height: 2px;
-  background-color: red;
+  background-color: #00cccc; /* Updated color for consistency */
   bottom: -4px;
   left: 0;
   transition: 0.3s ease;
@@ -67,45 +74,48 @@ body {
 
 /* Header Text */
 .header-text {
-  text-align: center;
-  margin-top: 20px;
+  /* Aligns text to the left side, away from the background image */
+  text-align: left; 
+  /* Centers the text vertically within the remaining space */
+  margin-top: auto; 
+  margin-bottom: auto;
+  max-width: 50%; /* Constrain text width so it doesn't overlap the image */
 }
 
 .header-text p {
   font-size: 24px;
-  color: #00ffff;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  align-items: center;
-  justify-content: center;
-  padding-left: 50%;
+  color: #00cccc; /* Updated color */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* Removed conflicting alignment and padding styles */
 }
 
 .header-text h1 {
-  font-size: 48px;
+  font-size: 60px; /* Larger font size for impact */
   font-weight: bold;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 
 /* About Section */
 #about {
   background-color: #111;
-  padding: 60px 10%;
+  padding: 80px 10%; /* Increased padding for better spacing */
 }
 
 .about-section {
   display: flex;
-  gap: 40px;
+  gap: 50px;
   align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .about-img img {
   width: 300px;
-  height: auto;
-  border-radius: 10px;
+  height: 300px; /* Fixed height for a perfect circle/square */
+  border-radius: 50%; /* Made image a perfect circle */
   object-fit: cover;
+  border: 4px solid #00cccc; /* Subtle professional border */
 }
 
 .about-content {
@@ -113,25 +123,25 @@ body {
 }
 
 .about-content h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 38px;
+  margin-bottom: 25px;
 }
 
 .about-content p {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.7;
   margin-bottom: 30px;
 }
 
 .about-links {
   margin-top: 20px;
   display: flex;
-  gap: 20px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
 .social-link {
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
@@ -161,24 +171,26 @@ body {
 }
 
 .social-link:hover {
-  transform: scale(1.05);
-  border-color: #00ffcc;
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
+  transform: translateY(-3px); /* Use transform for hover effect */
+  border-color: #00cccc; /* Updated hover color */
+  box-shadow: 0 0 10px rgba(0, 204, 204, 0.6);
 }
 
 /* Skills Section */
 .skills-section {
   text-align: center;
-  margin-top: 60px;
-  margin-bottom: 80px;
+  margin-top: 80px;
+  margin-bottom: 100px;
+  padding: 0 10%;
 }
 
 .skills-section h2 {
-  font-size: 34px;
-  margin-bottom: 30px;
+  font-size: 36px;
+  margin-bottom: 50px;
   color: white;
   display: inline-block;
   padding-bottom: 8px;
+  border-bottom: 3px solid #00cccc; /* Professional underline effect */
 }
 
 .skill-category {
@@ -186,17 +198,16 @@ body {
 }
 
 .skill-category h3 {
-  font-size: 24px;
+  font-size: 26px;
   color: #ffcc00;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .skill-icons {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 40px;
   flex-wrap: wrap;
-  margin-top: 10px;
   position: relative;
 }
 
@@ -209,155 +220,126 @@ body {
 }
 
 .icon-item i {
-  font-size: 50px;
+  font-size: 60px; /* Larger icons */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .icon-item:hover i {
-  transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  transform: translateY(-8px); /* Lift icon on hover */
+  box-shadow: 0 10px 15px rgba(0, 255, 255, 0.2);
 }
 
 .icon-label {
   font-size: 16px;
-  color: #00ffff;
+  color: #00cccc; /* Updated color */
   margin-top: 8px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  opacity: 1; /* Always visible labels are more professional */
+  transition: color 0.3s ease;
+}
+.icon-item:hover .icon-label {
+    color: #ffcc00; /* Highlight label on hover */
 }
 
-.icon-item:hover .icon-label {
-  opacity: 1;
-}
 
 /* Tooltip Styling */
 .tooltip {
+  /* Tooltips are now triggered only by icon-item hover */
   position: absolute;
   bottom: -60px;
   left: 50%;
-  transform: translate(-50%, 5px);
+  transform: translateX(-50%);
   background-color: #222;
   color: #fff;
-  padding: 10px 12px;
-  font-size: 13px;
-  border-radius: 6px;
-  width: 200px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  width: 220px;
   text-align: center;
-  white-space: normal;
   line-height: 1.4;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 10;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
 }
 
 .icon-item:hover .tooltip {
   opacity: 1;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -10px); /* Lift tooltip slightly */
 }
 
 /* Experience Section */
 .experience-section {
   font-family: 'Segoe UI', sans-serif;
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 20px;
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 0 10%;
 }
 
 .experience-section h2 {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 32px;
+  margin-bottom: 50px;
+  font-size: 36px;
   letter-spacing: 1px;
   display: inline-block;
   padding-bottom: 8px;
-  color: white;
+  border-bottom: 3px solid #00cccc; /* Professional underline effect */
 }
 
 .experience-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
 .experience-card {
   background-color: #1c1c1c;
-  padding: 25px 30px;
+  padding: 30px;
   border-radius: 12px;
   border: 1px solid #333;
   transition: all 0.4s ease;
-  box-shadow: 0 0 10px rgba(0, 255, 200, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .experience-card:hover {
-  background-color: #1e2f3f;
-  transform: translateY(-6px);
-  box-shadow: 0 0 30px rgba(0, 200, 255, 0.5);
+  background-color: #242424; /* Slightly lighter hover color */
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 204, 204, 0.3); /* Updated shadow */
 }
 
 .experience-card h3 {
-  color: #00ffcc;
-  font-size: 22px;
-  margin-bottom: 10px;
+  color: #00cccc;
+  font-size: 24px;
+  margin-bottom: 12px;
 }
 
 .experience-card p {
-  font-size: 16px;
-  color: #ddd;
+  font-size: 15px;
+  color: #ccc;
   margin: 6px 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .experience-card p strong {
   color: #ffffff;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .experience-card {
-    padding: 20px;
-  }
-
-  .experience-card h3 {
-    font-size: 20px;
-  }
-
-  .experience-section h2 {
-    font-size: 28px;
-  }
-
-  .about-section {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .about-links {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .skill-icons {
-    justify-content: center;
-  }
-}
-
 /* Contact Section */
 .contact-section {
   background-color: #111;
-  padding: 60px 10%;
+  padding: 80px 10%;
   color: white;
   text-align: center;
 }
 
 .contact-section h2 {
-  font-size: 32px;
-  margin-bottom: 40px;
+  font-size: 36px;
+  margin-bottom: 50px;
   color: white;
   display: inline-block;
   padding-bottom: 8px;
+  border-bottom: 3px solid #00cccc; /* Professional underline effect */
 }
 
 .contact-form {
@@ -374,47 +356,82 @@ body {
   display: block;
   margin-bottom: 8px;
   font-size: 16px;
-  color: #fff;
+  color: #ccc;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #444;
-  border-radius: 5px;
+  padding: 14px;
+  border: 1px solid #333;
+  border-radius: 6px;
   background-color: #1c1c1c;
   color: white;
   font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #00cccc; /* Highlight focus */
+    outline: none;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #999;
+  color: #888;
 }
 
 .btn-submit {
-  padding: 12px 30px;
-  font-size: 16px;
+  padding: 14px 40px;
+  font-size: 17px;
   font-weight: bold;
-  background-color: #00ffcc;
+  background-color: #00cccc;
   color: black;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 15px;
 }
 
 .btn-submit:hover {
-  background-color: #00ddb0;
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+  background-color: #00a0a0;
+  box-shadow: 0 0 15px rgba(0, 204, 204, 0.5);
 }
-.header-text{
-  margin: 20%;
-  font-size: 30px;
-}
-.header-text h1{
-  font-size: 60px;
-  margin-top: 20px;
 
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  #header {
+    background-position: center bottom; /* Move image to bottom center on small screens */
+    background-size: 80%; /* Shrink image on small screens */
+  }
+
+  .header-text {
+    max-width: 100%; /* Allow text to use full width */
+    text-align: center; /* Center text on small screens */
+    margin-top: 100px;
+  }
+  
+  .header-text h1 {
+    font-size: 48px;
+  }
+  
+  .header-text p {
+    font-size: 20px;
+  }
+
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-links {
+    justify-content: center;
+  }
+
+  .experience-cards {
+    grid-template-columns: 1fr;
+  }
 }
