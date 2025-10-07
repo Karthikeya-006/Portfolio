@@ -21,7 +21,7 @@ body {
   height: 100vh;
   /* Image as background for the Home Section */
   background-image: url('profile-pic.jpg'); 
-  background-size: contain; /* Scales image while preserving aspect ratio */
+  background-size: 350px; /* Scales image while preserving aspect ratio */
   background-position: 90% center; /* Positions the image to the right */
   background-repeat: no-repeat;
   
@@ -39,6 +39,7 @@ body {
   justify-content: flex-end; /* Push nav to the right */
   align-items: center;
   padding-bottom: 20px; /* Space between nav and main text */
+  width:100%;
 }
 
 /* Removed: .header-text span. It was unused in the current HTML. */
@@ -435,3 +436,4 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
