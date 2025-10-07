@@ -1,470 +1,375 @@
-/* Reset and Base Styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* Smooth transitions for hovers and states */
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  background-color: black;
-  font-family: Arial, sans-serif;
-  color: white;
+    background-color: #000000; /* Deep black background */
+    color: #ffffff; /* White text color */
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
-/* -------------------------------------- */
-/* Header Section */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; 
+}
+
+/* Base styling for subsequent sections */
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #00ffc3; /* Accent color for titles */
+}
+
+/* ======================= 2. HEADER SECTION / HOME PAGE STYLES ======================= */
 #header {
-  width: 100%;
-  height: 100vh;
-  padding: 20px 10%;
-  position: relative;
-  
-  /* Use Flexbox for vertical layout: Nav on top, main content below */
-  display: flex;
-  flex-direction: column; 
-  /* Removed: All background-image properties */
+    width: 100%;
+    min-height: 100vh; 
+    padding-top: 20px; 
 }
 
-/* Navigation Bar (Top Right) */
+/* --- Navigation Bar (.nav) --- */
 .nav {
-  display: flex;
-  /* Pushes navigation links to the far right */
-  justify-content: flex-end; 
-  align-items: center;
-  width: 100%; 
-  padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 0; 
+}
+
+.nav-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00ffc3;
 }
 
 .nav ul {
-  display: flex;
-  list-style: none;
-  gap: 30px;
+    display: flex;
+    list-style: none;
+    gap: 35px; 
 }
 
 .nav ul li a {
-  position: relative;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
+    position: relative;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
 }
-
 .nav ul li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background-color: #00cccc;
-  bottom: -4px;
-  left: 0;
-  transition: 0.3s ease;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ff004f; /* Hover color */
+    bottom: -4px;
+    left: 0;
+    transition: 0.3s ease;
 }
 
 .nav ul li a:hover::after {
-  width: 100%;
+    width: 100%;
 }
 
-/* -------------------------------------- */
-/* NEW: Main Content (Text + Image Side-by-Side) */
-.header-main-content {
-    /* Use Flexbox for horizontal layout */
+/* --- Header Content (Main Banner: Side-by-Side) --- */
+.header-content {
     display: flex;
-    align-items: center; /* Vertically centers text and image */
-    justify-content: space-between; /* Pushes text and image apart */
-    
-    /* Takes up all remaining vertical space in the header */
-    flex-grow: 1; 
+    align-items: center; 
+    justify-content: space-between; 
+    height: calc(100vh - 90px); 
 }
 
-/* Header Text (Left Side) */
 .header-text {
-    text-align: left; 
-    flex: 1; /* Allows text to grow and take space */
-    margin-right: 50px; 
+    flex-basis: 60%; 
 }
 
-.header-text p {
+.header-text .role {
+    color: #00ffc3; 
     font-size: 24px;
-    color: #00cccc; 
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .header-text h1 {
-    font-size: 60px; 
-    font-weight: bold;
+    font-size: 60px;
+    font-weight: 700;
     line-height: 1.2;
 }
 
-/* Header Image (Right Side) */
-.header-image {
-    /* Fixed container size for the profile picture */
-    max-width: 400px;
-    height: 500px; 
-    
-    /* Optional background color for the image box, similar to the example */
-    background-color: #1a1a1a; 
-    
-    /* Ensure image container is pinned to the right and doesn't shrink */
-    flex-shrink: 0;
+.header-img {
+    flex-basis: 35%; 
+    text-align: right;
 }
 
-.profile-main-img {
+.header-img .profile-pic {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image fills the space */
-    /* Add border-radius for a slightly softer look if desired */
-    /* border-radius: 10px; */ 
+    max-width: 350px; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 195, 0.3); 
 }
-/* -------------------------------------- */
 
-
-/* About Section */
+/* ======================= 3. ABOUT SECTION STYLES ======================= */
 #about {
-  background-color: #111;
-  padding: 80px 10%; 
+    background-color: #0a0a0a; /* Slightly lighter black for contrast */
 }
-
-.about-section {
-  display: flex;
-  gap: 50px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-/* REMOVED: .about-img img CSS since the image is now in the header */
-
 
 .about-content {
-  flex: 1;
-}
-
-.about-content h1 {
-  font-size: 38px;
-  margin-bottom: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .about-content p {
-  font-size: 17px;
-  line-height: 1.7;
-  margin-bottom: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #ccc;
 }
 
 .about-links {
-  margin-top: 20px;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .social-link {
-  padding: 10px 22px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
 }
 
-.social-link.linkedin {
-  background-color: #0077b5;
-  color: white;
-}
-
-.social-link.github {
-  background-color: #333;
-  color: white;
-}
-
-.social-link.resume {
-  background-color: #ff4d4d;
-  color: white;
-}
-
-.social-link.resume:hover {
-  background-color: #ff6666;
-  box-shadow: 0 0 12px rgba(255, 77, 77, 0.5);
-}
+.social-link.linkedin { background-color: #0077b5; }
+.social-link.github { background-color: #333; }
+.social-link.resume { background-color: #ff004f; }
 
 .social-link:hover {
-  transform: translateY(-3px); 
-  border-color: #00cccc; 
-  box-shadow: 0 0 10px rgba(0, 204, 204, 0.6);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Skills Section */
-.skills-section {
-  text-align: center;
-  margin-top: 80px;
-  margin-bottom: 100px;
-  padding: 0 10%;
-}
-
-.skills-section h2 {
-  font-size: 36px;
-  margin-bottom: 50px;
-  color: white;
-  display: inline-block;
-  padding-bottom: 8px;
-  border-bottom: 3px solid #00cccc; 
-}
-
-.skill-category {
-  margin-bottom: 50px;
-}
-
-.skill-category h3 {
-  font-size: 26px;
-  color: #ffcc00;
-  margin-bottom: 30px;
-}
-
-.skill-icons {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.icon-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.icon-item i {
-  font-size: 60px; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.icon-item:hover i {
-  transform: translateY(-8px); 
-  box-shadow: 0 10px 15px rgba(0, 255, 255, 0.2);
-}
-
-.icon-label {
-  font-size: 16px;
-  color: #00cccc; 
-  margin-top: 8px;
-  opacity: 1; 
-  transition: color 0.3s ease;
-}
-.icon-item:hover .icon-label {
-    color: #ffcc00; 
-}
-
-
-/* Tooltip Styling */
-.tooltip {
-  position: absolute;
-  bottom: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #222;
-  color: #fff;
-  padding: 8px 12px;
-  font-size: 14px;
-  border-radius: 4px;
-  width: 220px;
-  text-align: center;
-  line-height: 1.4;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 10;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-}
-
-.icon-item:hover .tooltip {
-  opacity: 1;
-  transform: translate(-50%, -10px); 
-}
-
-/* Experience Section */
+/* ======================= 4. EXPERIENCE SECTION STYLES ======================= */
 .experience-section {
-  font-family: 'Segoe UI', sans-serif;
-  max-width: 1000px;
-  margin: 80px auto;
-  padding: 0 10%;
-}
-
-.experience-section h2 {
-  text-align: center;
-  margin-bottom: 50px;
-  font-size: 36px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding-bottom: 8px;
-  border-bottom: 3px solid #00cccc; 
+    background-color: #000000;
 }
 
 .experience-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .experience-card {
-  background-color: #1c1c1c;
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid #333;
-  transition: all 0.4s ease;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 5px solid #00ffc3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .experience-card:hover {
-  background-color: #242424; 
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 204, 204, 0.3); 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 195, 0.2);
 }
 
 .experience-card h3 {
-  color: #00cccc;
-  font-size: 24px;
-  margin-bottom: 12px;
+    color: #00ffc3;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
 
 .experience-card p {
-  font-size: 15px;
-  color: #ccc;
-  margin: 6px 0;
-  line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc;
 }
 
-.experience-card p strong {
-  color: #ffffff;
+/* ======================= 5. SKILLS SECTION STYLES ======================= */
+.skills-section {
+    background-color: #0a0a0a;
+    text-align: center;
 }
 
-/* Contact Section */
+.skill-category {
+    margin-bottom: 60px;
+}
+
+.skill-category h3 {
+    font-size: 28px;
+    color: #ff004f;
+    margin-bottom: 30px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+
+.skill-icons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-item i {
+    font-size: 70px; 
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.icon-item:hover i {
+    transform: scale(1.1);
+    color: #00ffc3 !important; /* Forces color change on hover */
+}
+
+.icon-label {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* ======================= 6. CONTACT SECTION STYLES ======================= */
 .contact-section {
-  background-color: #111;
-  padding: 80px 10%;
-  color: white;
-  text-align: center;
-}
-
-.contact-section h2 {
-  font-size: 36px;
-  margin-bottom: 50px;
-  color: white;
-  display: inline-block;
-  padding-bottom: 8px;
-  border-bottom: 3px solid #00cccc; 
+    background-color: #000000;
 }
 
 .contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
 }
 
 .form-group {
-  margin-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
-  color: #ccc;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #ccc;
 }
 
 .form-group input,
 .form-group textarea {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #333;
-  border-radius: 6px;
-  background-color: #1c1c1c;
-  color: white;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #0a0a0a;
+    color: white;
+    font-size: 16px;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #00cccc; 
+    border-color: #00ffc3; 
     outline: none;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #888;
-}
-
 .btn-submit {
-  padding: 14px 40px;
-  font-size: 17px;
-  font-weight: bold;
-  background-color: #00cccc;
-  color: black;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 15px;
+    padding: 14px 40px;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #00ffc3;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
 }
 
 .btn-submit:hover {
-  background-color: #00a0a0;
-  box-shadow: 0 0 15px rgba(0, 204, 204, 0.5);
+    background-color: #ff004f;
+    color: white;
 }
 
-/* Responsive Overrides */
-@media (max-width: 768px) {
-  /* Header adjustments for mobile */
-  #header {
-    height: auto;
-    min-height: 100vh;
-  }
-  
-  .header-main-content {
-      flex-direction: column; /* Stacks image and text vertically on small screens */
-      text-align: center;
-      padding-top: 50px;
-  }
-  
-  .header-image {
-      max-width: 90%;
-      height: 400px;
-      margin-top: 50px;
-      margin-left: 0;
-  }
-  
-  .header-text {
-    max-width: 100%; 
-    text-align: center; 
-    margin-right: 0;
-  }
-
-  .header-text h1 {
-    font-size: 48px;
-  }
-  
-  .header-text p {
-    font-size: 20px;
-  }
-
-  .about-section {
-    flex-direction: column;
-    align-items: center;
+/* ======================= 7. FOOTER STYLES ======================= */
+.footer {
     text-align: center;
-  }
+    padding: 20px 0;
+    background-color: #1a1a1a;
+    font-size: 14px;
+    color: #888;
+}
 
-  .about-links {
-    justify-content: center;
-  }
+/* ======================= 8. MEDIA QUERIES (FOR RESPONSIVENESS) ======================= */
 
-  .experience-cards {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 32px;
+    }
+    
+    /* --- Navigation Bar Adjustments --- */
+    .nav {
+        /* Stack the nav links below the logo/text */
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    
+    .nav ul {
+        margin-top: 15px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    
+    /* --- Header Content Adjustments --- */
+    .header-content {
+        /* Stack the text and image vertically */
+        flex-direction: column;
+        justify-content: center;
+        height: auto; 
+        padding-top: 40px;
+        text-align: center;
+    }
+    
+    .header-text {
+        flex-basis: 100%;
+        margin-bottom: 30px;
+    }
+
+    .header-text h1 {
+        font-size: 40px;
+    }
+    
+    .header-img {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    
+    .header-img .profile-pic {
+        max-width: 250px;
+    }
+    
+    /* --- Other Sections Adjustments --- */
+    .about-links {
+        flex-direction: column;
+    }
+    
+    .experience-cards {
+        grid-template-columns: 1fr;
+    }
 }
