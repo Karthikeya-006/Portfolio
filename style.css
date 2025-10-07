@@ -15,33 +15,29 @@ body {
   color: white;
 }
 
+/* -------------------------------------- */
 /* Header Section */
 #header {
   width: 100%;
   height: 100vh;
-  /* Image as background for the Home Section */
-  background-image: url('profile-pic.jpg'); 
-  background-size: 350px; /* Scales image while preserving aspect ratio */
-  background-position: calc(100%-10%) center; /* Positions the image to the right */
-  background-repeat: no-repeat;
-  
   padding: 20px 10%;
   position: relative;
   
-  /* Flexbox to vertically center the header text */
+  /* Use Flexbox for vertical layout: Nav on top, main content below */
   display: flex;
   flex-direction: column; 
+  /* Removed: All background-image properties */
 }
 
-/* Navigation Bar */
+/* Navigation Bar (Top Right) */
 .nav {
   display: flex;
-  justify-content: flex-end; /* Push nav to the right */
+  /* Pushes navigation links to the far right */
+  justify-content: flex-end; 
   align-items: center;
-  width:100%;
+  width: 100%; 
+  padding-bottom: 20px;
 }
-
-/* Removed: .header-text span. It was unused in the current HTML. */
 
 .nav ul {
   display: flex;
@@ -62,7 +58,7 @@ body {
   position: absolute;
   width: 0;
   height: 2px;
-  background-color: #00cccc; /* Updated color for consistency */
+  background-color: #00cccc;
   bottom: -4px;
   left: 0;
   transition: 0.3s ease;
@@ -72,35 +68,64 @@ body {
   width: 100%;
 }
 
-/* Header Text */
+/* -------------------------------------- */
+/* NEW: Main Content (Text + Image Side-by-Side) */
+.header-main-content {
+    /* Use Flexbox for horizontal layout */
+    display: flex;
+    align-items: center; /* Vertically centers text and image */
+    justify-content: space-between; /* Pushes text and image apart */
+    
+    /* Takes up all remaining vertical space in the header */
+    flex-grow: 1; 
+}
+
+/* Header Text (Left Side) */
 .header-text {
-  /* Aligns text to the left side, away from the background image */
-  margin-left:0;
-  /* Centers the text vertically within the remaining space */
-  margin-top: 150px; 
-  text-align:left;
-  max-width: 50%; /* Constrain text width so it doesn't overlap the image */
+    text-align: left; 
+    flex: 1; /* Allows text to grow and take space */
+    margin-right: 50px; 
 }
 
 .header-text p {
-  font-size: 24px;
-  color: #00cccc; /* Updated color */
-  margin-top: 5px;
-  margin-bottom: 5px;
-  /* Removed conflicting alignment and padding styles */
+    font-size: 24px;
+    color: #00cccc; 
+    margin-bottom: 5px;
 }
 
 .header-text h1 {
-  font-size: 60px; /* Larger font size for impact */
-  font-weight: bold;
-  line-height: 1.2;
+    font-size: 60px; 
+    font-weight: bold;
+    line-height: 1.2;
 }
+
+/* Header Image (Right Side) */
+.header-image {
+    /* Fixed container size for the profile picture */
+    max-width: 400px;
+    height: 500px; 
+    
+    /* Optional background color for the image box, similar to the example */
+    background-color: #1a1a1a; 
+    
+    /* Ensure image container is pinned to the right and doesn't shrink */
+    flex-shrink: 0;
+}
+
+.profile-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the space */
+    /* Add border-radius for a slightly softer look if desired */
+    /* border-radius: 10px; */ 
+}
+/* -------------------------------------- */
 
 
 /* About Section */
 #about {
   background-color: #111;
-  padding: 80px 10%; /* Increased padding for better spacing */
+  padding: 80px 10%; 
 }
 
 .about-section {
@@ -110,13 +135,8 @@ body {
   flex-wrap: wrap;
 }
 
-.about-img img {
-  width: 300px;
-  height: 300px; /* Fixed height for a perfect circle/square */
-  border-radius: 50%; /* Made image a perfect circle */
-  object-fit: cover;
-  border: 4px solid #00cccc; /* Subtle professional border */
-}
+/* REMOVED: .about-img img CSS since the image is now in the header */
+
 
 .about-content {
   flex: 1;
@@ -171,8 +191,8 @@ body {
 }
 
 .social-link:hover {
-  transform: translateY(-3px); /* Use transform for hover effect */
-  border-color: #00cccc; /* Updated hover color */
+  transform: translateY(-3px); 
+  border-color: #00cccc; 
   box-shadow: 0 0 10px rgba(0, 204, 204, 0.6);
 }
 
@@ -190,7 +210,7 @@ body {
   color: white;
   display: inline-block;
   padding-bottom: 8px;
-  border-bottom: 3px solid #00cccc; /* Professional underline effect */
+  border-bottom: 3px solid #00cccc; 
 }
 
 .skill-category {
@@ -220,31 +240,30 @@ body {
 }
 
 .icon-item i {
-  font-size: 60px; /* Larger icons */
+  font-size: 60px; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .icon-item:hover i {
-  transform: translateY(-8px); /* Lift icon on hover */
+  transform: translateY(-8px); 
   box-shadow: 0 10px 15px rgba(0, 255, 255, 0.2);
 }
 
 .icon-label {
   font-size: 16px;
-  color: #00cccc; /* Updated color */
+  color: #00cccc; 
   margin-top: 8px;
-  opacity: 1; /* Always visible labels are more professional */
+  opacity: 1; 
   transition: color 0.3s ease;
 }
 .icon-item:hover .icon-label {
-    color: #ffcc00; /* Highlight label on hover */
+    color: #ffcc00; 
 }
 
 
 /* Tooltip Styling */
 .tooltip {
-  /* Tooltips are now triggered only by icon-item hover */
   position: absolute;
   bottom: -60px;
   left: 50%;
@@ -266,7 +285,7 @@ body {
 
 .icon-item:hover .tooltip {
   opacity: 1;
-  transform: translate(-50%, -10px); /* Lift tooltip slightly */
+  transform: translate(-50%, -10px); 
 }
 
 /* Experience Section */
@@ -284,7 +303,7 @@ body {
   letter-spacing: 1px;
   display: inline-block;
   padding-bottom: 8px;
-  border-bottom: 3px solid #00cccc; /* Professional underline effect */
+  border-bottom: 3px solid #00cccc; 
 }
 
 .experience-cards {
@@ -303,9 +322,9 @@ body {
 }
 
 .experience-card:hover {
-  background-color: #242424; /* Slightly lighter hover color */
+  background-color: #242424; 
   transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(0, 204, 204, 0.3); /* Updated shadow */
+  box-shadow: 0 15px 30px rgba(0, 204, 204, 0.3); 
 }
 
 .experience-card h3 {
@@ -339,7 +358,7 @@ body {
   color: white;
   display: inline-block;
   padding-bottom: 8px;
-  border-bottom: 3px solid #00cccc; /* Professional underline effect */
+  border-bottom: 3px solid #00cccc; 
 }
 
 .contact-form {
@@ -373,7 +392,7 @@ body {
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #00cccc; /* Highlight focus */
+    border-color: #00cccc; 
     outline: none;
 }
 
@@ -402,17 +421,31 @@ body {
 
 /* Responsive Overrides */
 @media (max-width: 768px) {
+  /* Header adjustments for mobile */
   #header {
-    background-position: center bottom; /* Move image to bottom center on small screens */
-    background-size: 80%; /* Shrink image on small screens */
-  }
-
-  .header-text {
-    max-width: 100%; /* Allow text to use full width */
-    text-align: center; /* Center text on small screens */
-    margin-top: 100px;
+    height: auto;
+    min-height: 100vh;
   }
   
+  .header-main-content {
+      flex-direction: column; /* Stacks image and text vertically on small screens */
+      text-align: center;
+      padding-top: 50px;
+  }
+  
+  .header-image {
+      max-width: 90%;
+      height: 400px;
+      margin-top: 50px;
+      margin-left: 0;
+  }
+  
+  .header-text {
+    max-width: 100%; 
+    text-align: center; 
+    margin-right: 0;
+  }
+
   .header-text h1 {
     font-size: 48px;
   }
@@ -435,5 +468,3 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
-
