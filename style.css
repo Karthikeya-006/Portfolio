@@ -22,7 +22,7 @@ body {
   /* Image as background for the Home Section */
   background-image: url('profile-pic.jpg'); 
   background-size: 350px; /* Scales image while preserving aspect ratio */
-  background-position: 90% center; /* Positions the image to the right */
+  background-position: calc(100%-10%) center; /* Positions the image to the right */
   background-repeat: no-repeat;
   
   padding: 20px 10%;
@@ -38,7 +38,6 @@ body {
   display: flex;
   justify-content: flex-end; /* Push nav to the right */
   align-items: center;
-  padding-bottom: 20px; /* Space between nav and main text */
   width:100%;
 }
 
@@ -76,10 +75,10 @@ body {
 /* Header Text */
 .header-text {
   /* Aligns text to the left side, away from the background image */
-  text-align: left; 
+  margin-left:0;
   /* Centers the text vertically within the remaining space */
-  margin-top: auto; 
-  margin-bottom: auto;
+  margin-top: 150px; 
+  text-align:left;
   max-width: 50%; /* Constrain text width so it doesn't overlap the image */
 }
 
@@ -436,4 +435,5 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
 
