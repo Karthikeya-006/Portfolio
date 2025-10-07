@@ -1,182 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Karthikeya - Front-end Developer Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const form = document.querySelector(".contact-form");
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const data = new FormData(form);
-        const action = form.getAttribute("action");
-        fetch(action, {
-          method: "POST",
-          body: data,
-          headers: { Accept: "application/json" },
-        })
-          .then(() => {
-            alert("Thank you! Your message was sent.");
-            form.reset();
-          })
-          .catch(() => {
-            alert("Oops! There was a problem submitting your form");
-          });
-      });
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthikeya - Front-end Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
 </head>
 <body>
 
-  <div id="header">
-    <div class="nav">
-      <ul>
-        <li><a href="#header">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#Skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+    <header id="header">
+        <div class="container">
+            
+            <nav class="nav">
+                <img src="profile-pic.jpg" alt="Logo" class="nav-logo" />
+                
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
 
-    <div class="header-main-content">
-        <div class="header-text">
-            <p>Front-end Developer</p>
-            <h1>Hi, I am Tejagna Chandra Karthikeya</h1>
+            <div class="header-content">
+                <div class="header-text">
+                    <p class="role">Front-end Developer</p>
+                    <h1>Hi, I am Tejasna Chandra Karthikeya</h1>
+                </div>
+                
+                <div class="header-img">
+                    <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                </div>
+            </div>
         </div>
-        
-        <div class="header-image">
-            <img src="profile-pic.jpg" alt="Profile Picture" class="profile-main-img" /> 
-        </div>
-    </div>
-  </div>
+    </header>
 
-  <div id="about">
-    <div class="container about-section">
-      <div class="about-content">
-        <h1>About Me</h1>
-        <p>
-          Results-driven IT undergraduate with an 8.24 CGPA and expertise in front-end development and AI integration (Gemini API). Delivered scalable web applications and automated 90% of repetitive tasks through RPA. Seeking to build innovative solutions as a front-end developer.
-        </p>
-        <div class="about-links">
-          <a href="https://www.linkedin.com/in/karthikeya-atluri" target="_blank" class="social-link linkedin">LinkedIn</a>
-          <a href="https://github.com/karthikeya-006" target="_blank" class="social-link github">GitHub</a>
-          <a href="karthikeya.pdf" class="social-link resume" target="_blank">Resume</a>
+    <section id="about">
+        <div class="container about-section">
+            <div class="about-content">
+                <h2 class="section-title">About Me</h2>
+                <p>
+                    Results-driven IT undergraduate with an 8.24 CGPA and expertise in front-end development and AI integration (Gemini API). Delivered scalable web applications and automated 90% of repetitive tasks through RPA. Seeking to build innovative solutions as a front-end developer.
+                </p>
+                <div class="about-links">
+                    <a href="https://www.linkedin.com/in/karthikeya-atluri" target="_blank" class="social-link linkedin">LinkedIn</a>
+                    <a href="https://github.com/karthikeya-006" target="_blank" class="social-link github">GitHub</a>
+                    <a href="karthikeya.pdf" class="social-link resume" target="_blank">Resume</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <div id="experience" class="experience-section">
-    <h2>Experience</h2>
-    <div class="experience-cards">
-      <div class="experience-card">
-        <h3>Python Programming Intern</h3>
-        <p><strong>Company:</strong> CodSoft</p>
-        <p><strong>Duration:</strong> May 2024 – June 2024</p>
-        <p>Built several mini projects using Python including calculators, To Do Lists, Tic Tac Toe game with several python libraries like Scikit-learn, Pandas, etc.</p>
-      </div>
-      <div class="experience-card">
-        <h3>AI-ML Virtual Internship</h3>
-        <p><strong>Organization:</strong> Eduskills</p>
-        <p><strong>Duration:</strong> April 2025 – June 2025</p>
-        <p>Worked on machine learning models, classification problems, and AI projects using Python and Jupyter Notebooks. Applied regression, clustering, and neural network techniques.</p>
-      </div>
-      <div class="experience-card">
-        <h3>Data Science Intern</h3>
-        <p><strong>Company:</strong> SkillDzire</p>
-        <p><strong>Duration:</strong> May 2024 – June 2024 (2 months)</p>
-        <p>Gained hands-on experience with data cleaning, visualization, and predictive modeling. Utilized tools like Pandas, Matplotlib, and Scikit-learn for real-world datasets.</p>
-      </div>
-    </div>
-  </div>
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-cards">
+                <div class="experience-card">
+                    <h3>Python Programming Intern</h3>
+                    <p><strong>Company:</strong> CodSoft</p>
+                    <p><strong>Duration:</strong> May 2024 – June 2024</p>
+                    <p>Built several mini projects using Python including calculators, To Do Lists, Tic Tac Toe game with several python libraries like Scikit-learn, Pandas, etc.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>AI-ML Virtual Internship</h3>
+                    <p><strong>Organization:</strong> Eduskills</p>
+                    <p><strong>Duration:</strong> April 2025 – June 2025</p>
+                    <p>Worked on machine learning models, classification problems, and AI projects using Python and Jupyter Notebooks. Applied regression, clustering, and neural network techniques.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>Data Science Intern</h3>
+                    <p><strong>Company:</strong> SkillDzire</p>
+                    <p><strong>Duration:</strong> May 2024 – June 2024 (2 months)</p>
+                    <p>Gained hands-on experience with data cleaning, visualization, and predictive modeling. Utilized tools like Pandas, Matplotlib, and Scikit-learn for real-world datasets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div id="Skills" class="skills-section">
-    <h2>Skills</h2>
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
 
-    <div class="skill-category">
-      <h3>Web Development</h3>
-      <div class="skill-icons">
-        <div class="icon-item">
-          <i class="devicon-html5-plain colored"></i>
-          <span class="icon-label">HTML</span>
-          <div class="tooltip">HTML: Standard markup language for creating structured web pages.</div>
-        </div>
-        <div class="icon-item">
-          <i class="devicon-css3-plain colored"></i>
-          <span class="icon-label">CSS</span>
-          <div class="tooltip">CSS: Stylesheet language used to style HTML elements (colors, layouts, fonts).</div>
-        </div>
-        <div class="icon-item">
-          <i class="devicon-javascript-plain colored"></i>
-          <span class="icon-label">JavaScript</span>
-          <div class="tooltip">JavaScript: Adds interactivity and dynamic behavior to websites.</div>
-        </div>
-        <div class="icon-item">
-          <i class="devicon-react-original colored"></i>
-          <span class="icon-label">ReactJS</span>
-          <div class="tooltip">ReactJS: Front-end JavaScript library for building component-based UIs.</div>
-        </div>
-        <div class="icon-item">
-          <i class="devicon-nodejs-plain colored"></i>
-          <span class="icon-label">NodeJS</span>
-          <div class="tooltip">NodeJS: JavaScript runtime used to build fast and scalable server-side apps.</div>
-        </div>
-      </div>
-    </div>
+            <div class="skill-category">
+                <h3>Web Development</h3>
+                <div class="skill-icons">
+                    <div class="icon-item"><i class="devicon-html5-plain colored"></i><span class="icon-label">HTML</span></div>
+                    <div class="icon-item"><i class="devicon-css3-plain colored"></i><span class="icon-label">CSS</span></div>
+                    <div class="icon-item"><i class="devicon-javascript-plain colored"></i><span class="icon-label">JavaScript</span></div>
+                    <div class="icon-item"><i class="devicon-react-original colored"></i><span class="icon-label">ReactJS</span></div>
+                    <div class="icon-item"><i class="devicon-nodejs-plain colored"></i><span class="icon-label">NodeJS</span></div>
+                </div>
+            </div>
 
-    <div class="skill-category">
-      <h3>Programming & Databases</h3>
-      <div class="skill-icons">
-        <div class="icon-item">
-          <i class="devicon-python-plain colored"></i>
-          <span class="icon-label">Python</span>
-          <div class="tooltip">Python: Versatile language used in web, data science, AI/ML, and scripting.</div>
+            <div class="skill-category">
+                <h3>Programming & Databases</h3>
+                <div class="skill-icons">
+                    <div class="icon-item"><i class="devicon-python-plain colored"></i><span class="icon-label">Python</span></div>
+                    <div class="icon-item"><i class="devicon-cplusplus-plain colored"></i><span class="icon-label">DSA</span></div>
+                    <div class="icon-item"><i class="devicon-mysql-plain colored"></i><span class="icon-label">SQL</span></div>
+                    <div class="icon-item"><i class="devicon-sqldeveloper-plain colored"></i><span class="icon-label">DBMS</span></div>
+                </div>
+            </div>
         </div>
-        <div class="icon-item">
-          <i class="devicon-cplusplus-plain colored"></i>
-          <span class="icon-label">DSA</span>
-          <div class="tooltip">DSA: Data Structures and Algorithms for problem-solving and logic building.</div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <form class="contact-form" action="https://formspree.io/f/xqaboyov" method="POST">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Your email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Your message"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
         </div>
-        <div class="icon-item">
-          <i class="devicon-mysql-plain colored"></i>
-          <span class="icon-label">SQL</span>
-          <div class="tooltip">SQL: Query language for accessing and managing structured data in databases.</div>
-        </div>
-        <div class="icon-item">
-          <i class="devicon-sqldeveloper-plain colored"></i>
-          <span class="icon-label">DBMS</span>
-          <div class="tooltip">DBMS: Systems used to store, retrieve, and manage database data efficiently.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="contact" class="contact-section">
-    <h2>Contact Me</h2>
-    <form class="contact-form" action="https://formspree.io/f/xqaboyov" method="POST">
-      <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" required placeholder="Your phone number">
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required placeholder="Your email address">
-      </div>
-
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Your message"></textarea>
-      </div>
-
-      <button type="submit" class="btn-submit">Send Message</button>
-    </form>
-  </div>
-
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2025 Karthikeya. All rights reserved.</p>
+    </footer>
+    
 </body>
 </html>
